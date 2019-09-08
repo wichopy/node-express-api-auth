@@ -11,7 +11,7 @@ mongoose.connect(getSecret('dbUri')).then(
   () => {
     console.log('Connected to mongoDB');
   },
-  (err) => console.log('Error connecting to mongoDB', err)
+  (err) => console.error('Error connecting to mongoDB. If using docker compose, remember to update the host name to the name of the service. IE: if your mongo db service is called db, than the URI needs to be mongodb://db:27017 \n', err)
 );
 
 const app = express();
